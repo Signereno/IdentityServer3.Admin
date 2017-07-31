@@ -14,7 +14,7 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
   </PropertyGroup>
-  <PropertyGroup  Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -226,6 +226,7 @@
     <Content Include="Assets\Content\Bundle.css">
       <DependentUpon>Bundle.css.bundle</DependentUpon>
     </Content>
+    <Content Include="Assets\Scripts\Libs\ui-bootstrap-tpls-2.5.0.min.js" />
     <EmbeddedResource Include="Assets\Content\style.min.css">
       <DependentUpon>style.css</DependentUpon>
     </EmbeddedResource>
@@ -235,8 +236,6 @@
     <Content Include="Assets\Scripts\Libs\sha256.js" />
     <Content Include="Assets\Scripts\Libs\sha512.js" />
     <Content Include="Assets\Scripts\Libs\sha_dev.js" />
-    <Content Include="Assets\Scripts\Libs\ui-bootstrap-custom-tpls-0.14.3.min.js" />
-    <Content Include="Assets\Scripts\Libs\ui-bootstrap-tpls-0.14.3.min.js" />
     <EmbeddedResource Include="Assets\Content\Bundle.min.css">
       <DependentUpon>Bundle.css</DependentUpon>
     </EmbeddedResource>

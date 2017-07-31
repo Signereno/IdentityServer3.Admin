@@ -103,7 +103,7 @@
                     <span data-ng-repeat="choice in availableHashes.choices">
                         <label class="form-radio form-normal form-primary form-text form-checkbox" ng-class="availableHashes.chosenHash == choice.id ? 'active form-radio form-normal form-primary form-text' : 'form-radio form-normal form-primary form-text'">
                             <input type="radio" name="hashChoices" class="user-edit-regular" value="{{choice.id}}" ng-model="availableHashes.chosenHash"/>
-                            {{choice.text}} 
+                            {{choice.text}}
                         </label>
                     </span>
                     
@@ -111,7 +111,8 @@
                 <br/><br />
                 <div class="form-group">
                     <label for="type" class="column">Add Client Secret</label>
-                    <input type="text" class="form-control client-edit-regular" id="type" placeholder="Type" required autofocus ng-model="clientSecret.type">
+                    <input type="text" class="form-control client-edit-regular" id="type" placeholder="Type" autocomplete="off" required ng-model="clientSecret.type"
+                           ng-blur="checkSecretType()" uib-typeahead="type for type in secretTypes | filter:$viewValue | limitTo:8" typeahead-min-length="0">
                 </div>
                 <div class="form-group">
                     <div class="input-group">

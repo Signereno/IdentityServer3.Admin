@@ -156,20 +156,39 @@
         };
         //Client Secret
         $scope.availableHashes = {
-            chosenHash: "SHA-512",
+            chosenHash: "SHA-256",
             choices:[
             {
                 id: "SHA-256",
                 text: "SHA-256",
-                isDefault: "false"
+                isDefault: "true"
             }, {
                 id: "SHA-512",
                 text: "SHA-512",
-                isDefault: "true"
-            }
+                isDefault: "false"
+            }, {
+                id: 'NONE',
+                text: 'NONE',
+                isDefault: "false"
+                }
             ]
         };
-        function calculateClientHash (clientSecret) {
+
+        $scope.secretTypes = [
+            'SharedSecret',
+            'X509Thumbprint'
+        ];
+
+        $scope.checkSecretType = function () {
+            if ($scope.clientSecret && $scope.clientSecret.type === 'X509Thumbprint') {
+                $scope.availableHashes.chosenHash = 'NONE';
+            }
+        }
+
+        function calculateClientHash(clientSecret) {
+            if ($scope.availableHashes.chosenHash === 'NONE')
+                return;
+
             var hashObj = new jsSHA(
 				$scope.availableHashes.chosenHash,
 				"TEXT",
